@@ -33,6 +33,7 @@ def get_latest_session():
     except FileNotFoundError:
         return jsonify({'error': 'No session log file'}), 404
     except json.JSONDecodeError:
+
         return jsonify({'error': 'Corrupted session data'}), 500
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
